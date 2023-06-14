@@ -9,7 +9,7 @@ import { Cormorant } from "next/font/google";
 const cormorant = Cormorant({ subsets: ["latin"], variable: "--display-font" });
 
 const navItem = [
-  { title: "Home", href: "/", img: "my-account-icon.jpg" },
+  { title: "Home", href: "/", img: "Home-icon.png" },
   { title: "My Account", href: "/account", img: "my-account-icon.jpg" },
   { title: "Cart", href: "/cart", img: "basket-cart-icon.png" },
 ];
@@ -20,7 +20,7 @@ const Navbar = () => {
 
   return (
     <header className={cormorant.variable}>
-      <nav className="z-20 flex h-32 w-full items-center bg-zinc-900">
+      <nav className="navbar bg-zinc-900">
         <div className="flex flex-row items-center h-32 ">
           <Link
             className="relative w-[120px] h-[120px] ml-3"

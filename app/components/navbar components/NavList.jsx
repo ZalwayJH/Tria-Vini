@@ -11,34 +11,44 @@ const NavList = ({
   setActivePage,
 }) => {
   return (
-    <div className="max-w-1xl mx-auto w-full justify-between px-10">
+    <div className="max-w-1xl mx-auto w-full justify-end px-10">
       <ul className="hidden list-none flex-row justify-end gap-10 lg:flex ">
         {navItem.map((item, i) => {
           return (
             <li key={i}>
               <Link
-                className=" inline-flex flex-col-reverse gap-1 items-center font-semibold"
+                className={`btn hover:bg-tria-gold flex-col-reverse gap-1 items-center font-semibold ${
+                  activePage === item.title && "bg-zinc-600"
+                }`}
                 href={item.href}
                 onClick={() => {
                   setActivePage(item.title);
                 }}
               >
-                <p
-                  className={
-                    item.title === activePage
-                      ? `text-tria-gold text-xl `
-                      : `text-white hover:text-tria-gold text-xl`
-                  }
-                >
-                  {item.title}
-                </p>
-                <Image
-                  className="invert w-5 h-5"
-                  width={20}
-                  height={20}
-                  src={`/images/${item.img}`}
-                  alt={`${item.img}`}
-                />
+                {item.title === "Cart" ? (
+                  <label tabIndex={0} className="btn btn-ghost btn-circle">
+                    <div className="indicator">
+                      <Image
+                        className="invert w-8 h-8"
+                        width={25}
+                        height={25}
+                        src={`/images/${item.img}`}
+                        alt={`${item.img}`}
+                      />
+                      <span className="badge badge-lg text-white p-2 bg-tria-gold font-semibold text-xl indicator-item">
+                        8
+                      </span>
+                    </div>
+                  </label>
+                ) : (
+                  <Image
+                    className="invert w-8 h-8"
+                    width={25}
+                    height={25}
+                    src={`/images/${item.img}`}
+                    alt={`${item.img}`}
+                  />
+                )}
               </Link>
             </li>
           );

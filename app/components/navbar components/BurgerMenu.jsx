@@ -4,13 +4,13 @@ import Image from "next/image";
 
 const BurgerMenu = ({ navItem, isMenuOpen, setIsMenuOpen, setActivePage }) => {
   return (
-    <div className="flex flex-1 items-center justify-end lg:hidden ">
+    <div className="flex-1 items-center justify-end lg:hidden ">
       <Image
         className="cursor-pointer"
         priority="true"
         src={isMenuOpen ? "/images/Exit-Icon.png" : "/images/Menu-Icon.png"}
-        height={35}
-        width={35}
+        height={50}
+        width={50}
         alt="Burger menu"
         onClick={() => {
           setIsMenuOpen(!isMenuOpen);
@@ -45,10 +45,10 @@ const BurgerMenu = ({ navItem, isMenuOpen, setIsMenuOpen, setActivePage }) => {
                     alt={`${item.img}`}
                   />
 
-                  {item.title === "Cart" ? (
+                  {item.title === "Basket" ? (
                     <p className="text-white hover:text-tria-gold">
                       {item.title}
-                      <span className="text-tria-gold badge badge-lg text-xl ml-4 ">
+                      <span className="text-black bg-tria-gold badge badge-lg text-xl ml-6 ">
                         0
                       </span>
                     </p>

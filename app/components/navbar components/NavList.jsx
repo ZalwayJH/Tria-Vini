@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import BurgerMenu from "./BurgerMenu";
-
+import Drawer from "./Drawer";
 const NavList = ({
   navItem,
   isMenuOpen,
@@ -12,12 +11,12 @@ const NavList = ({
 }) => {
   return (
     <div className="flex min-w-fit items-center justify-end mr-3">
-      <ul className="hidden list-none flex-row justify-end gap-10 lg:flex ">
+      <ul className="hidden list-none mx-5 flex-row justify-end gap-10 lg:flex ">
         {navItem.map((item, i) => {
           return (
             <li key={i}>
               <Link
-                className={`btn border-none mx-0 hover:bg-tria-gold flex-col-reverse items-center font-semibold ${
+                className={`btn btn-ghost btn-circle border-none mx-0 hover:bg-tria-gold flex-col-reverse items-center font-semibold ${
                   activePage === item.title ? "bg-zinc-600" : "bg-zinc-900"
                 }`}
                 href={item.href}
@@ -28,7 +27,7 @@ const NavList = ({
                 {item.title === "Basket" ? (
                   <div className="indicator">
                     <Image
-                      className="invert w-8 h-9"
+                      className="invert w-7 h-8"
                       width={25}
                       height={25}
                       src={`/images/${item.img}`}
@@ -40,7 +39,7 @@ const NavList = ({
                   </div>
                 ) : (
                   <Image
-                    className="invert w-8 h-9"
+                    className="invert w-7 h-8"
                     width={25}
                     height={25}
                     src={`/images/${item.img}`}
@@ -52,7 +51,8 @@ const NavList = ({
           );
         })}
       </ul>
-      <BurgerMenu
+
+      <Drawer
         navItem={navItem}
         isMenuOpen={isMenuOpen}
         setIsMenuOpen={setIsMenuOpen}

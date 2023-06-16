@@ -21,27 +21,30 @@ const Navbar = () => {
 
   return (
     <header className={cormorant.variable}>
-      <nav className="navbar bg-zinc-900">
-        <div className="flex flex-row items-center h-32 ">
+      <nav className="w-full">
+        <div className=" h-24 bg-zinc-900 flex flex-wrap items-center justify-between mx-auto p-4">
           <Link
-            className="relative w-[75px] h-[75px] ml-3 "
+            className="flex items-center"
             href="/"
             onClick={() => {
               setActivePage("Home");
             }}
           >
             <Image
+              className="mr-3"
               priority="true"
               src="/images/Tria-Vini-Logo.svg"
-              fill={true}
+              width={75}
+              height={75}
+              // fill={true}
               alt="Logo"
             />
+            <span class="self-center text-3xl font-semibold whitespace-nowrap text-tria-gold font-display">
+              TRIA VINI
+            </span>
           </Link>
-          <h1 className="ml-2 font-display whitespace-nowrap text-4xl text-tria-gold lg:block hidden">
-            TRIA VINI
-          </h1>
         </div>
-        <SearchBar />
+        {/* <SearchBar /> */}
         <NavList
           navItem={navItem}
           isMenuOpen={isMenuOpen}

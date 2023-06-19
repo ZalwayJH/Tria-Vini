@@ -24,7 +24,7 @@ const Navbar = () => {
       <nav className="w-full">
         <div className=" h-24 bg-zinc-900 flex  items-center justify-between mx-auto p-4">
           <Link
-            className="flex items-center"
+            className="flex items-center flex-shrink-0"
             href="/"
             onClick={() => {
               setActivePage("Home");
@@ -39,7 +39,7 @@ const Navbar = () => {
               // fill={true}
               alt="Logo"
             />
-            <span className="self-center text-3xl font-semibold whitespace-nowrap text-tria-gold font-display">
+            <span className="flex self-center text-3xl font-semibold whitespace-nowrap text-tria-gold font-display">
               TRIA VINI
             </span>
           </Link>

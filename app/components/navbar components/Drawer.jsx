@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-
+import DrawerSearchBar from "./DrawerSearchBar";
 const Drawer = ({ navItem, isMenuOpen, setIsMenuOpen, setActivePage }) => {
   return (
     <div className="drawer-end">
@@ -46,8 +46,9 @@ const Drawer = ({ navItem, isMenuOpen, setIsMenuOpen, setActivePage }) => {
                   setIsMenuOpen(false);
                 }}
               >
+                <div className="menu-title divider m-0"></div>
                 <Link
-                  className="gap-7  py-3 text-xl font-semibold "
+                  className="gap-7 hover:bg-none py-3 text-xl font-semibold "
                   href={item.href}
                   onClick={() => {
                     setActivePage(item.title);
@@ -78,6 +79,8 @@ const Drawer = ({ navItem, isMenuOpen, setIsMenuOpen, setActivePage }) => {
               </li>
             );
           })}
+
+          <DrawerSearchBar />
         </ul>
       </div>
     </div>

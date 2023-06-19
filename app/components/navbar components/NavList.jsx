@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import Drawer from "./Drawer";
+
 const NavList = ({
   navItem,
   isMenuOpen,
@@ -10,13 +11,17 @@ const NavList = ({
   setActivePage,
 }) => {
   return (
-    <div className="flex min-w-fit items-center justify-end mr-3">
+    <div className="flex min-w-fit items-center justify-end mr-3 ">
       <ul className="hidden list-none mx-5 flex-row justify-end gap-10 lg:flex ">
         {navItem.map((item, i) => {
           return (
-            <li key={i}>
+            <li
+              key={i}
+              className="tooltip tooltip-bottom"
+              data-tip={item.title}
+            >
               <Link
-                className={`btn btn-ghost btn-circle border-none mx-0 hover:bg-tria-gold flex-col-reverse items-center font-semibold ${
+                className={`btn btn-ghost btn-circle  border-none mx-0 hover:bg-tria-gold flex-col-reverse items-center font-semibold ${
                   activePage === item.title ? "bg-zinc-600" : "bg-zinc-900"
                 }`}
                 href={item.href}
@@ -33,7 +38,7 @@ const NavList = ({
                       src={`/images/${item.img}`}
                       alt={`${item.img}`}
                     />
-                    <span className="badge badge-lg text-black p-2 bg-tria-gold font-semibold text-xl indicator-item">
+                    <span className="badge badge-lg z-0 text-black p-2 bg-tria-gold font-semibold text-xl indicator-item">
                       8
                     </span>
                   </div>

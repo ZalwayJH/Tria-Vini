@@ -22,7 +22,7 @@ const Navbar = () => {
   return (
     <header className={cormorant.variable}>
       <nav className="w-full">
-        <div className=" h-24 bg-zinc-900 flex flex-wrap items-center justify-between mx-auto p-4">
+        <div className=" h-24 bg-zinc-900 flex  items-center justify-between mx-auto p-4">
           <Link
             className="flex items-center"
             href="/"
@@ -39,19 +39,19 @@ const Navbar = () => {
               // fill={true}
               alt="Logo"
             />
-            <span class="self-center text-3xl font-semibold whitespace-nowrap text-tria-gold font-display">
+            <span className="self-center text-3xl font-semibold whitespace-nowrap text-tria-gold font-display">
               TRIA VINI
             </span>
           </Link>
+          <SearchBar />
+          <NavList
+            navItem={navItem}
+            isMenuOpen={isMenuOpen}
+            setIsMenuOpen={setIsMenuOpen}
+            activePage={activePage}
+            setActivePage={setActivePage}
+          />
         </div>
-        {/* <SearchBar /> */}
-        <NavList
-          navItem={navItem}
-          isMenuOpen={isMenuOpen}
-          setIsMenuOpen={setIsMenuOpen}
-          activePage={activePage}
-          setActivePage={setActivePage}
-        />
       </nav>
     </header>
   );

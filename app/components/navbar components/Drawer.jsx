@@ -7,23 +7,37 @@ const Drawer = ({ navItem, isMenuOpen, setIsMenuOpen, setActivePage }) => {
     <div className="drawer-end">
       <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
       <div className="flex-none lg:hidden">
-        <label htmlFor="my-drawer-3" className="btn btn-square btn-ghost">
+        <label htmlFor="my-drawer-3" className="btn btn-circle p-1 btn-ghost">
           <Image
             className="cursor-pointer"
             priority="true"
             src={"/images/Menu-Icon.png"}
             height={50}
             width={50}
-            alt="Burger menu"
+            alt="Drawer menu"
             onClick={() => {
               setIsMenuOpen(!isMenuOpen);
             }}
+            aria-label="Expand drawer button"
           />
         </label>
       </div>
       <div className="drawer-side">
         <label htmlFor="my-drawer-3" className="drawer-overlay"></label>
-        <ul className="menu p-4 w-80 h-full bg-zinc-800">
+        <ul className="menu p-4 w-80 h-full bg-zinc-800 ">
+          <div className="flex-row-reverse justify-between inline-flex">
+            <span className="h-7 text-xl underline cursor-pointer whitespace-nowrap text-blue-300  ">
+              Sign out
+            </span>
+            <Image
+              className="mb-2"
+              priority="true"
+              src="/images/Tria-Vini-Logo.svg"
+              width={75}
+              height={75}
+              alt="Logo"
+            />
+          </div>
           {navItem.map((item, i) => {
             return (
               <li
@@ -37,6 +51,7 @@ const Drawer = ({ navItem, isMenuOpen, setIsMenuOpen, setActivePage }) => {
                   href={item.href}
                   onClick={() => {
                     setActivePage(item.title);
+                    document.getElementById("my-drawer-3").click();
                   }}
                 >
                   <Image

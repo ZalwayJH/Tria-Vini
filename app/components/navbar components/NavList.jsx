@@ -3,13 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import Drawer from "./Drawer";
 
-const NavList = ({
-  navItem,
-  isMenuOpen,
-  setIsMenuOpen,
-  activePage,
-  setActivePage,
-}) => {
+const NavList = ({ navItem, isMenuOpen, setIsMenuOpen }) => {
   return (
     <div className="flex min-w-fit items-center justify-end mr-3 ">
       <ul className="hidden list-none mx-5 flex-row justify-end gap-10 lg:flex ">
@@ -21,15 +15,14 @@ const NavList = ({
               data-tip={item.title}
             >
               <Link
-                className={`btn btn-ghost btn-circle  border-none mx-0 hover:bg-tria-gold flex-col-reverse items-center font-semibold ${
-                  activePage === item.title ? "bg-zinc-600" : "bg-zinc-900"
-                }`}
+                className="btn btn-ghost btn-circle  border-none mx-0 hover:bg-tria-gold flex-col-reverse items-center font-semibold "
                 href={item.href}
+                scroll={true}
                 onClick={() => {
-                  setActivePage(item.title);
+                  window.scrollTo(0, 0);
                 }}
               >
-                {item.title === "Basket" ? (
+                {item.title === "Cart" ? (
                   <div className="indicator">
                     <Image
                       className="invert w-7 h-8"
@@ -56,13 +49,7 @@ const NavList = ({
           );
         })}
       </ul>
-
-      <Drawer
-        navItem={navItem}
-        isMenuOpen={isMenuOpen}
-        setIsMenuOpen={setIsMenuOpen}
-        setActivePage={setActivePage}
-      />
+      <Drawer navItem={navItem} isMenuOpen={isMenuOpen} />
     </div>
   );
 };

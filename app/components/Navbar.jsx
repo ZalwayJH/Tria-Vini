@@ -12,22 +12,19 @@ const cormorant = Cormorant({ subsets: ["latin"], variable: "--display-font" });
 const navItem = [
   { title: "Home", href: "/", img: "Home-icon.png" },
   { title: "My Account", href: "/account", img: "my-account-icon.jpg" },
-  { title: "Basket", href: "/cart", img: "basket-cart-icon.png" },
+  { title: "Cart", href: "/cart", img: "basket-cart-icon.png" },
 ];
 
 const Navbar = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [activePage, setActivePage] = useState("Home");
-
   return (
-    <header className={cormorant.variable}>
-      <nav className="w-full">
-        <div className=" h-24 bg-zinc-900 flex  items-center justify-between mx-auto p-4">
+    <header className={`${cormorant.variable} sticky top-0`}>
+      <nav className="w-full backdrop-blur-sm ">
+        <div className=" h-24  flex items-center justify-between mx-auto p-4">
           <Link
             className="flex items-center flex-shrink-0"
             href="/"
             onClick={() => {
-              setActivePage("Home");
+              window.scrollTo(0, 0);
             }}
           >
             <Image
@@ -36,7 +33,6 @@ const Navbar = () => {
               src="/images/Tria-Vini-Logo.svg"
               width={75}
               height={75}
-              // fill={true}
               alt="Logo"
             />
             <span className="flex self-center text-3xl font-semibold whitespace-nowrap text-tria-gold font-display">
@@ -44,13 +40,7 @@ const Navbar = () => {
             </span>
           </Link>
           <SearchBar />
-          <NavList
-            navItem={navItem}
-            isMenuOpen={isMenuOpen}
-            setIsMenuOpen={setIsMenuOpen}
-            activePage={activePage}
-            setActivePage={setActivePage}
-          />
+          <NavList navItem={navItem} />
         </div>
       </nav>
     </header>

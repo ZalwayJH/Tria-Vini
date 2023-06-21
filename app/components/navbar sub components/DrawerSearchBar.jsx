@@ -1,10 +1,11 @@
 import React from "react";
 
-const SearchBar = () => {
+const DrawerSearchBar = () => {
   return (
-    <form className="lg:flex hidden join w-[25em] ">
+    <form className="flex join justify-center items-center mt-3">
       <input
-        className="input flex-shrink-0 min-w-full  bg-zinc-700 join-item "
+        id="search"
+        className="input flex-shrink-0   bg-zinc-700 join-item "
         placeholder="Search.."
       />
 
@@ -28,4 +29,4 @@ const SearchBar = () => {
   );
 };
 
-export default SearchBar;
+export default DrawerSearchBar;

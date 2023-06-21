@@ -1,14 +1,15 @@
 import React from "react";
 
-const DrawerSearchBar = () => {
+const SearchBar = () => {
   return (
-    <form className="flex join justify-center items-center mt-3">
+    <form className="lg:flex hidden join w-[25em] ">
       <input
-        className="input flex-shrink-0   bg-zinc-700 join-item "
+        id="search"
+        className="input flex-shrink-0 min-w-full  bg-zinc-600 join-item placeholder:text-white"
         placeholder="Search.."
       />
 
-      <button className="btn btn-ghost btn-square bg-zinc-700 hover:bg-zinc-600 join-item ">
+      <button className="btn btn-ghost btn-square bg-zinc-600 hover:bg-zinc-600 join-item ">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           className="h-6 w-6"
@@ -28,4 +29,4 @@ const DrawerSearchBar = () => {
   );
 };
 
-export default DrawerSearchBar;
+export default SearchBar;

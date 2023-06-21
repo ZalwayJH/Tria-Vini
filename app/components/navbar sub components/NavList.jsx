@@ -5,7 +5,7 @@ import Drawer from "./Drawer";
 
 const NavList = ({ navItem, isMenuOpen, setIsMenuOpen }) => {
   return (
-    <div className="flex min-w-fit items-center justify-end mr-3 ">
+    <div className="flex min-w-fit items-center justify-end ">
       <ul className="hidden list-none mx-5 flex-row justify-end gap-10 lg:flex ">
         {navItem.map((item, i) => {
           return (

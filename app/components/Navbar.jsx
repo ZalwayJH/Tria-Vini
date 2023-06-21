@@ -3,8 +3,8 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import NavList from "./navbar components/NavList";
-import SearchBar from "./navbar components/SearchBar";
+import NavList from "./navbar sub components/NavList";
+import SearchBar from "./navbar sub components/SearchBar";
 import { Cormorant } from "next/font/google";
 
 const cormorant = Cormorant({ subsets: ["latin"], variable: "--display-font" });
@@ -17,9 +17,11 @@ const navItem = [
 
 const Navbar = () => {
   return (
-    <header className={`${cormorant.variable} sticky top-0`}>
-      <nav className="w-full backdrop-blur-sm ">
-        <div className=" h-24  flex items-center justify-between mx-auto p-4">
+    <header
+      className={`${cormorant.variable} sticky top-0 ring-[0.2px] ring-white `}
+    >
+      <nav className="w-full backdrop-blur-md  ">
+        <div className=" h-24 flex items-center justify-between mx-auto p-4">
           <Link
             className="flex items-center flex-shrink-0"
             href="/"

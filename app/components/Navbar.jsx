@@ -18,7 +18,7 @@ const navItem = [
 const Navbar = () => {
   return (
     <header
-      className={`${cormorant.variable} sticky top-0 ring-[0.2px] ring-white `}
+      className={`${cormorant.variable} sticky z-10 top-0 ring-[0.2px] ring-white `}
     >
       <nav className="w-full backdrop-blur-md  ">
         <div className=" h-24 flex items-center justify-between mx-auto p-4">

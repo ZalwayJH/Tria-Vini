@@ -26,30 +26,31 @@ const inter = Inter({ subsets: ["latin"] });
 // </div>
 
 const WineStore = () => {
-  const arr = [1, 2, 3, 4, 1, 2, 3, 4, 1, 1, 1, 1];
+  const arr = [1, 2, 3, 4, 1, 2, 3, 4, 1, 1, 1, 1, 1, 1, 1, 1];
 
   return (
-    <div>
-      <ul className="flex justify-center flex-wrap  bg-zinc-900">
+    <div className="w-full">
+      <ul className="flex justify-center sm:mx-11 flex-wrap p-5 bg-zinc-900 ">
         {arr.map((element, i) => {
           return (
-            <li key={i}>
-              <div className="bg-zinc-800 rounded-xl ring-zinc-600 ring-[0.9px] overflow-hidden flex m-5 flex-row h-80 w-[23em]">
-                <div className="flex-none relative">
+            <li key={i} className="w-auto  m-5 flex ">
+              <div className="bg-zinc-800 shadow-md shadow-black/50 rounded-md ring-zinc-700 ring-[0.9px] overflow-hidden  flex flex-row h-80  xs:w-[21em] ">
+                <div className="flex-none relative ">
                   <Image
-                    className="w-full h-full z-0 "
+                    className="w-full  h-full z-0 "
                     src="/images/winePlaceholder.png"
                     width={194}
                     height={390}
                     alt="wine"
                   />
                   <button
-                    className={`${inter.className}flex flex-shrink-0 py-2 rounded absolute mb-2 z-0  bottom-0 left-5 right-5 bg-zinc-700 font-bold text-tria-gold text-xl`}
+                    className={`${inter.className}
+                     justify-center flex flex-shrink-0  rounded absolute mb-2 z-0  bottom-0 left-5 right-5 bg-zinc-700 font-bold text-tria-gold text-xl shadow-md shadow-black/50 hover:bg-zinc-600 btn normal-case border-none`}
                   >
                     View
                   </button>
                 </div>
-                <div className="card-body p-2">
+                <div className="card-body justify-between p-2 ">
                   <h2 className="card-title text-2xl place-self-center">
                     Umbra
                   </h2>
@@ -65,36 +66,10 @@ const WineStore = () => {
                       750<span className="text-tria-gold">ml</span>
                     </p>
                   </div>
-                  <div readOnly className="rating">
-                    <input
-                      readOnly
-                      name="rating-1"
-                      className="mask mask-star"
-                      checked
-                    />
-                    <input
-                      readOnly
-                      name="rating-1"
-                      className="mask mask-star"
-                      checked
-                    />
-                    <input
-                      readOnly
-                      name="rating-1"
-                      className="mask mask-star"
-                      type="radio"
-                    />
-                    <input readOnly className="mask mask-star" checked />
-                    <input
-                      readOnly
-                      type="radio"
-                      name="rating-1"
-                      className="mask mask-star"
-                    />
-                  </div>
+
                   <div className="card-actions items-center flex-col whitespace-nowrap flex-end">
                     <button
-                      className={`${inter.className}   flex flex-shrink-0 py-2 rounded  px-4 bg-cyan-700 font-medium text-white text-xl`}
+                      className={`${inter.className}    flex flex-shrink-0 py-2 rounded  px-4 bg-cyan-700 font-medium text-white text-xl   xs:text-lg shadow-md shadow-black/50 btn normal-case btn-ghost border-none hover:bg-cyan-600`}
                     >
                       Add to Basket
                     </button>

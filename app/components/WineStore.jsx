@@ -3,6 +3,7 @@ import React from "react";
 import Image from "next/image";
 import { Inter } from "next/font/google";
 import { Rating } from "react-simple-star-rating";
+
 const inter = Inter({ subsets: ["latin"] });
 
 // <div className="flex  m-5 border-[0.4px] border-zinc-600 overflow-hidden flex-row bg-zinc-800 h-80 w-[23em] shadow-xl">

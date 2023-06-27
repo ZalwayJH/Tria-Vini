@@ -21,3 +21,7 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+
+svg.star-svg {
+  display: inline;
+}

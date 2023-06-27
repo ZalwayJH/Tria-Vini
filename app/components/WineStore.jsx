@@ -1,6 +1,8 @@
+"use client";
 import React from "react";
 import Image from "next/image";
 import { Inter } from "next/font/google";
+import { Rating } from "react-simple-star-rating";
 const inter = Inter({ subsets: ["latin"] });
 
 // <div className="flex  m-5 border-[0.4px] border-zinc-600 overflow-hidden flex-row bg-zinc-800 h-80 w-[23em] shadow-xl">
@@ -30,14 +32,15 @@ const WineStore = () => {
 
   return (
     <div className="w-full">
-      <ul className="flex justify-center sm:mx-11 flex-wrap p-5 bg-zinc-900 ">
+      <ul className="flex justify-center sm:mx-11 flex-wrap p-5 bg-zinc-900">
         {arr.map((element, i) => {
+          let sale = element > 2 ? true : false;
           return (
-            <li key={i} className="w-auto  m-5 flex ">
-              <div className="bg-zinc-800 shadow-md shadow-black/50 rounded-md ring-zinc-700 ring-[0.9px] overflow-hidden  flex flex-row h-80  xs:w-[21em] ">
-                <div className="flex-none relative ">
+            <li key={i} className="w-auto  m-7 flex ">
+              <div className="group bg-zinc-800 shadow-md shadow-black/50 rounded-md ring-zinc-700 ring-[0.9px] overflow-hidden  flex flex-row h-80  xs:w-[21em] ">
+                <div className="flex-none relative">
                   <Image
-                    className="w-full  h-full z-0 "
+                    className="w-full h-full z-0 "
                     src="/images/winePlaceholder.png"
                     width={194}
                     height={390}
@@ -45,15 +48,16 @@ const WineStore = () => {
                   />
                   <button
                     className={`${inter.className}
-                     justify-center flex flex-shrink-0  rounded absolute mb-2 z-0  bottom-0 left-5 right-5 bg-zinc-700 font-bold text-tria-gold text-xl shadow-md shadow-black/50 hover:bg-zinc-600 btn normal-case border-none`}
+                     justify-center  lg:hidden group-hover:flex flex-shrink-0  rounded absolute mb-2 z-0  bottom-0 left-5 right-5 bg-zinc-700 font-bold text-tria-gold text-xl shadow-md shadow-slate-900/80 hover:bg-zinc-600 btn whitespace-nowrap normal-case border-none`}
                   >
                     View
                   </button>
                 </div>
-                <div className="card-body justify-between p-2 ">
+                <div className="card-body justify-between mx-auto p-1">
                   <h2 className="card-title text-2xl place-self-center">
                     Umbra
                   </h2>
+
                   <div>
                     <p className="">Merlot</p>
                     <p>Semi-sweet</p>
@@ -66,10 +70,28 @@ const WineStore = () => {
                       750<span className="text-tria-gold">ml</span>
                     </p>
                   </div>
+                  <div className="place-self-center  w-full border-t-2 border-b-2 border-tria-gold p-1 text-center ">
+                    <Rating
+                      size={25}
+                      transition
+                      allowFraction
+                      readonly
+                      initialValue={element}
+                      fillColor="#D32748"
+                    />
+                  </div>
+                  <div className="card-actions flex-col whitespace-nowrap flex-end inline place-self-center text-center ">
+                    <span
+                      className={`${
+                        sale ? "static" : "hidden"
+                      } nline-through mr-1  text-2xl text-red-700 line-through`}
+                    >
+                      £112
+                    </span>
+                    <span className="text-5xl ml-1  text-tria-gold ">£96</span>
 
-                  <div className="card-actions items-center flex-col whitespace-nowrap flex-end">
                     <button
-                      className={`${inter.className}    flex flex-shrink-0 py-2 rounded  px-4 bg-cyan-700 font-medium text-white text-xl   xs:text-lg shadow-md shadow-black/50 btn normal-case btn-ghost border-none hover:bg-cyan-600`}
+                      className={`${inter.className}  mt-2 flex flex-shrink-0 py-2 rounded  px-4 bg-cyan-700 font-medium text-white text-xl   xs:text-lg shadow-md shadow-slate-900/50 btn normal-case btn-ghost border-none hover:bg-cyan-600 mb-1`}
                     >
                       Add to Basket
                     </button>

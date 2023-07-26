@@ -1,29 +1,56 @@
-const { MongoClient } = require("mongodb");
-require("dotenv").config();
-const myName = process.env.USERNAME;
-const myPass = process.env.PASSWORD;
-const username = encodeURIComponent(myName);
-const password = encodeURIComponent(myPass);
-const uri = `mongodb+srv://${username}:${password}@winecluster0.pc7yttt.mongodb.net/?retryWrites=true&w=majority`;
+"use server";
+import clientPromise from "./clientPromise";
+// import { MongoClient } from "mongodb";
+// require("dotenv").config();
+// const uri = process.env.MONGODB_URI;
 
-const client = new MongoClient(uri);
-
-async function insertDocument(wine) {
+// const client = new MongoClient(uri);
+async function createUser(name, email) {
+  // await client.connect();
   try {
-    const database = client.db("insertDB");
-    const haiku = database.collection("haiku");
-    // create a document to insert
+    const client = await clientPromise;
+    const db = client.db("insertDB").collection("users");
     const doc = {
-      title: wine,
-      content: "No bytes, no problem. Just insert a document, in MongoDB",
+      name: name,
+      email: email,
     };
-    const result = await haiku.insertOne(doc);
-    console.log(`A document was inserted with the _id: ${result.insertedId}`);
-  } finally {
-    await client.close();
+    await db.insertOne(doc);
+  } catch (e) {
+    console.error(e);
   }
 }
-insertDocument().catch(console.dir);
+
+export default createUser;
+// export default async (req, res) => {
+//   try {
+//     const db = await clientPromise();
+//     const users = await db.collection('users').find({}).limit(20).toArray();
+//     res.json(users);
+//   } catch (e) {
+//     console.error(e);
+//     res.json({ error: 'Not connected!' });
+//   }
+// };
+// const { MongoClient } = require("mongodb");
+// require("dotenv").config();
+// const uri = process.env.MONGODB_URI;
+
+// const client = new MongoClient(uri);
+
+// export async function insertDocument() {
+//   try {
+//     const database = client.db("insertDB").collection("users");
+//     // create a document to insert
+//     const doc = {
+//       title: "frred",
+//       content: "No bytes, no problem. Just insert a document, in MongoDB",
+//     };
+//     const result = await database.insertOne(doc);
+//     console.log(`A document was inserted with the _id: ${result.insertedId}`);
+//   } finally {
+//     await client.close();
+//   }
+// }
 
 // async function findDocument() {
 //   try {

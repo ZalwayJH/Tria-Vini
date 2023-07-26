@@ -2,35 +2,13 @@
 import React from "react";
 import Image from "next/image";
 import { Inter } from "next/font/google";
-import { Rating } from "react-simple-star-rating";
+import StarRating from "./Navbar/StarRating";
+import AddToBasket from "./AddToBasket";
+import { getWineList } from "../api/getWineList";
 
 const inter = Inter({ subsets: ["latin"] });
 
-// <div className="flex  m-5 border-[0.4px] border-zinc-600 overflow-hidden flex-row bg-zinc-800 h-80 w-[23em] shadow-xl">
-//   <figure className=" flex-none">
-//     <Image
-//       className="w-full  h-full p-2 rounded-xl static"
-//       src="/images/winePlaceholder.png"
-//       width={194}
-//       height={390}
-//       alt="wine"
-//     />
-//     <button className="btn absolute w-[9em] bg-tria-gold text-black">
-//       View
-//     </button>
-//   </figure>
-//   <div className="card-body">
-//     <h2 className="card-title">New movie is released!</h2>
-//     <p>Click the button to watch on Jetflix app.</p>
-//     <div className="card-actions justify-center flex-col">
-//       <button className="btn btn-primary justify-end">Watch</button>
-//     </div>
-//   </div>
-// </div>
-
 const WineStore = () => {
-  const arr = [1, 2, 3, 4, 1, 2, 3, 4, 1, 1, 1, 1, 1, 1, 1, 1];
-
   return (
     <div className="w-full">
       <ul className="flex justify-center sm:mx-11 flex-wrap p-5 bg-zinc-900">
@@ -42,7 +20,7 @@ const WineStore = () => {
                 <div className="flex-none relative">
                   <Image
                     className="w-full h-full z-0 "
-                    src="/images/winePlaceholder.png"
+                    src="/images/1.png"
                     width={194}
                     height={390}
                     alt="wine"
@@ -60,7 +38,7 @@ const WineStore = () => {
                   </h2>
 
                   <div>
-                    <p className="">Merlot</p>
+                    <p>Merlot</p>
                     <p>Semi-sweet</p>
                   </div>
                   <div>
@@ -71,15 +49,8 @@ const WineStore = () => {
                       750<span className="text-tria-gold">ml</span>
                     </p>
                   </div>
-                  <div className="place-self-center  w-full border-t-2 border-b-2 border-tria-gold p-1 text-center ">
-                    <Rating
-                      size={25}
-                      transition
-                      allowFraction
-                      readonly
-                      initialValue={element}
-                      fillColor="#D32748"
-                    />
+                  <div className="place-self-center w-full border-t-2 border-b-2 border-tria-gold p-1 text-center ">
+                    <StarRating element={element} />
                   </div>
                   <div className="card-actions flex-col whitespace-nowrap flex-end inline place-self-center text-center ">
                     <span
@@ -90,19 +61,8 @@ const WineStore = () => {
                       £112
                     </span>
                     <span className="text-5xl ml-1  text-tria-gold ">£96</span>
-
-                    <button
-                      className={`${inter.className}  mt-2 flex flex-shrink-0 py-2 rounded  px-4 bg-cyan-700 font-medium text-white text-xl   xs:text-lg shadow-md shadow-slate-900/50 btn normal-case btn-ghost border-none hover:bg-cyan-600 mb-1`}
-                    >
-                      Add to Basket
-                    </button>
+                    <AddToBasket inter={inter} />
                   </div>
-                  {/* <div className="flex-row ">
-              <h2 className="text-3xl  my-2">Umbra</h2>
-              <div className="flex-row">
-                <h3>Merlot</h3>
-              </div>
-            </div> */}
                 </div>
               </div>
             </li>

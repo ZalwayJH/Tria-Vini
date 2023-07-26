@@ -1,12 +1,32 @@
-import React from "react";
+import React, { useState } from "react";
+import getWineList from "@/app/api/getWineList";
 
 const SearchBar = () => {
+  const [inputValue, setInputValue] = useState("");
+
+  const handleChange = (event) => {
+    event.preventDefault();
+    setInputValue(event.target.value);
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    getWineList(inputValue);
+  };
   return (
-    <form className="lg:flex hidden join w-[25em] ">
+    <form
+      type="submit"
+      onSubmit={handleSubmit}
+      className="lg:flex hidden join w-[25em] "
+      role="search"
+    >
       <input
+        value={inputValue}
+        onChange={handleChange}
         id="search"
         className="input flex-shrink-0 min-w-full  bg-zinc-600 join-item placeholder:text-white"
         placeholder="Search.."
+        title="searchBar"
       />
 
       <button className="btn btn-ghost btn-square bg-zinc-600 hover:bg-zinc-600 join-item ">
